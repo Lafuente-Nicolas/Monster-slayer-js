@@ -65,3 +65,42 @@
       background-color: $color-progress-monster;
     }
   }
+
+  button {
+    font-family: inherit;
+    background-color: $color-secondary;
+    color: white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    transition: background 0.2s;
+    @include pixel-border;
+  
+    &:hover {
+      background-color: lighten($color-secondary, 10%);
+    }
+  
+    &#heal-btn {
+      background-color: $color-heal;
+  
+      &:hover {
+        background-color: lighten($color-heal, 10%);
+      }
+    }
+  
+    &#start-btn {
+      background-color: $color-accent;
+  
+      &:hover {
+        background-color: lighten($color-accent, 10%);
+      }
+    }
+  
+    &#surrender-btn {
+      background-color: darken($color-accent, 15%);
+    }
+  }
+  
