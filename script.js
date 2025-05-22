@@ -68,3 +68,45 @@ function logAction(message) {
     startBtn.hidden = true;
   });
   
+  attackBtn.addEventListener("click", () => {
+    currentRound++;
+    const value = getRandomValue(5, 10);
+    monsterHealth -= value;
+    logAction(`Tu attaques et infliges ${value} dégâts au monstre.`);
+    if (!checkWinner()) {
+      monsterAttack();
+      updateBars();
+      checkWinner();
+    }
+  });
+  
+  specialAttackBtn.addEventListener("click", () => {
+    if (currentRound % 3 !== 0) return;
+    currentRound++;
+    const value = getRandomValue(10, 20);
+    monsterHealth -= value;
+    logAction(`Attaque spéciale ! Tu infliges ${value} dégâts au monstre.`);
+    if (!checkWinner()) {
+      monsterAttack();
+      updateBars();
+      checkWinner();
+    }
+  });
+  
+  healBtn.addEventListener("click", () => {
+    currentRound++;
+    const value = getRandomValue(8, 20);
+    playerHealth = Math.min(playerHealth + value, 100);
+    logAction(`Tu te soignes de ${value} points.`);
+    monsterAttack();
+    updateBars();
+    checkWinner();
+  });
+  
+  surrenderBtn.addEventListener("click", () => {
+    alert("Tu as abandonné !");
+    logAction("Tu as abandonné le combat.");
+    startBtn.hidden = false;
+    actionButtons.hidden = true;
+  });
+  
