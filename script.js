@@ -26,3 +26,45 @@ function updateBars() {
   playerHealthBar.value = playerHealth;
   monsterHealthBar.value = monsterHealth;
 }
+
+function logAction(message) {
+    const entry = document.createElement("li");
+    entry.textContent = message;
+    logList.prepend(entry);
+  }
+  
+  function checkWinner() {
+    if (playerHealth <= 0 && monsterHealth <= 0) {
+      alert("Égalité !");
+      logAction("Égalité !");
+      return true;
+    } else if (playerHealth <= 0) {
+      alert("Tu as perdu !");
+      logAction("Tu as perdu !");
+      return true;
+    } else if (monsterHealth <= 0) {
+      alert("Tu as gagné !");
+      logAction("Tu as gagné !");
+      return true;
+    }
+    return false;
+  }
+  
+  function monsterAttack() {
+    const value = getRandomValue(5, 12);
+    playerHealth -= value;
+    logAction(`Le monstre inflige ${value} dégâts.`);
+  }
+  
+  
+  startBtn.addEventListener("click", () => {
+    
+    playerHealth = 100;
+    monsterHealth = 100;
+    currentRound = 0;
+    updateBars();
+    logList.innerHTML = "";
+    actionButtons.hidden = false;
+    startBtn.hidden = true;
+  });
+  
