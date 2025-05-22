@@ -1,0 +1,17 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: $color-bg;
+    color: $color-text;
+    font-family: 'Press Start 2P', monospace;
+    padding: 2rem;
+    text-align: center;
+    line-height: 1.6;
+  }
