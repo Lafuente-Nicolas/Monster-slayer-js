@@ -1,0 +1,140 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #111;
+    color: $color-text;
+    font-family: 'Press Start 2P', monospace;
+    padding: 2rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: $color-accent;
+    margin-bottom: 1rem;
+  }
+  
+  h2, h3 {
+    color: $color-secondary;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  //  Zone de jeu
+  section[aria-label="Zone de combat"] {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: #1a1a1a;
+    border-radius: 10px;
+    @include pixel-border;
+  
+    article {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  //  Barres de vie
+  progress {
+    width: 80%;
+    height: 25px;
+    appearance: none;
+  
+    &::-webkit-progress-bar {
+      background-color: #333;
+      border-radius: 4px;
+    }
+  
+    &::-webkit-progress-value {
+      transition: width 0.3s ease-in-out;
+    }
+  
+    &#playerHealth::-webkit-progress-value {
+      background-color: $color-progress-player;
+    }
+  
+    &#monsterHealth::-webkit-progress-value {
+      background-color: $color-progress-monster;
+    }
+  }
+
+  button {
+    font-family: inherit;
+    background-color: $color-secondary;
+    color: white;
+    padding: 1rem;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    transition: background-color 0.2s ease-in-out;
+
+    @include pixel-border;
+  
+    &:hover {
+      background-color: lighten($color-secondary, 10%);
+    }
+  
+    &#heal-btn {
+      background-color: $color-heal;
+  
+      &:hover {
+        background-color: lighten($color-heal, 10%);
+      }
+    }
+  
+    &#start-btn {
+      background-color: $color-accent;
+  
+      &:hover {
+        background-color: lighten($color-accent, 10%);
+      }
+    }
+  
+    &#surrender-btn {
+      background-color: darken($color-accent, 15%);
+    }
+  }
+
+  #log {
+    list-style: none;
+    background: $color-log-bg;
+    padding: 1rem;
+    height: 200px;
+    overflow-y: auto;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.6rem;
+    @include pixel-border;
+  
+    li {
+      margin-bottom: 0.5rem;
+      color: #bada55;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.6rem;
+      padding: 1rem;
+    }
+  
+    button {
+      padding: 0.6rem;
+      font-size: 0.6rem;
+    }
+  
+    progress {
+      width: 100%;
+    }
+  }
+  
