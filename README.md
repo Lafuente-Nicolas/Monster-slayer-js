@@ -34,4 +34,19 @@ Monster Slayer est un mini-jeu en JavaScript où vous incarnez un héros affront
 
 ---
 
+## Objectifs pédagogiques
+
+- Manipuler le DOM avec JavaScript
+- Gérer des événements utilisateurs
+- Créer une interface interactive
+- Utiliser des conditions, boucles et fonctions
+- S’initier au SASS pour styliser un projet
+
+---
+
+## 👨 Auteur
+
+Projet réalisé par **Nicolas** dans le cadre de la formation **Développeur Front-End** chez Simplon.
+
+
 
